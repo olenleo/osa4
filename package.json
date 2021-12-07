@@ -1,0 +1,29 @@
+{
+  "name": "osa4",
+  "version": "1.0.0",
+  "description": "Fullstack-kurssin neljäs osa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olenleo/osa4.git"
+  },
+  "author": "Leo Niemi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olenleo/osa4/issues"
+  },
+  "homepage": "https://github.com/olenleo/osa4#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.0.15",
+    "node": "^17.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "nodemon": "^2.0.15"
+  }
+}
