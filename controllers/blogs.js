@@ -59,7 +59,7 @@ blogsRouter.delete('/:id', (request, response, next) => {
         likes: body.likes
     }
   
-    Blog.findByIdAndUpdate(request.params.id, note, { new: true })
+    Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
       .then(updatedBlog => {
         response.json(updatedBlog.toJSON())
       })

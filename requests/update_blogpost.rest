@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/61af24abc66868513c9543c5
+Content-Type: application/json
+
+{
+    "title": "PÄIVITETTY BLOGI",  
+    "author": "Tapio Niemi",
+    "url": "tappari.blog",
+    "likes": 1
+}
