@@ -4,10 +4,10 @@
   "description": "Fullstack-kurssin neljäs osa",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "lint": "eslint .",
-    "test": "jest --verbose"
+    "test": "NODE_ENV=test jest --verbose --runInBand"
   },
   "repository": {
     "type": "git",
@@ -23,17 +23,14 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "mongoose": "^6.0.15",
     "node": "^17.2.0"
   },
   "devDependencies": {
     "eslint": "^8.4.1",
     "jest": "^27.4.5",
-    "nodemon": "^2.0.15"
-  },
-  "jest": {
-    "testEnvironment": "node"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
   }
-
 }
-

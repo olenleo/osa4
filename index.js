@@ -3,6 +3,7 @@ const http = require('http')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 
+const api = supertest(app)
 const server = http.createServer(app)
 
 server.listen(config.PORT, () => {
