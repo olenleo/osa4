@@ -1,6 +1,2 @@
-DELETE http://localhost:3003/api/blogs/61af25c342de290c31203130
+DELETE http://localhost:3003/api/blogs/61cae696703dc69213e49578
 Content-Type: application/json
-
-
-// NOTE: This does not work if item with above ID does not exist.
-// Used this to prove delete method works.

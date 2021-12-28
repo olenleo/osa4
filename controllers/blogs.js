@@ -1,5 +1,7 @@
 const blogsRouter = require('express').Router()
+const { resourceLimits } = require('worker_threads')
 const Blog = require('../models/blog')
+
 
 blogsRouter.get(':id',(request, response, next) => {
     Blog.findById(request.params.id)
@@ -25,7 +27,7 @@ blogsRouter.get('/', async (request, response, next) => {
 
 blogsRouter.post('/', async (request, response, next) => {
     const body = request.body
-    // const MONGODB_URI = process.env.NODE_ENV === 'test' ? process.env.TEST_MONGODB_URI : process.env.MONGODB_URI
+  
     let likevar
     if(body.hasOwnProperty('likes')){
         likevar = body.likes
@@ -43,13 +45,14 @@ blogsRouter.post('/', async (request, response, next) => {
     response.json(savedBlog.toJSON())
 })
 
-blogsRouter.delete('/:id', (request, response, next) => {
-    Blog.findByIdAndRemove(request.params.id)
-      .then(() => {
-        response.status(204).end()
-      })
-      .catch(error => next(error))
-  })
+
+blogsRouter.delete('/:id', async (request, response, next) => {
+    var mongoose = require('mongoose');
+    var id = mongoose.Types.ObjectId(request.params.id);
+    const blog = await Blog.findById(id)
+    await Blog.findByIdAndRemove(id)
+    return response.status(204).end()
+})
 
   
   blogsRouter.put('/:id', (request, response, next) => {

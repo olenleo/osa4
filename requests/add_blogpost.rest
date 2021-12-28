@@ -2,8 +2,8 @@ POST http://localhost:3003/api/blogs/
 Content-Type: application/json
 
 {
-    "title": "Kivikaupunki",  
-    "author": "Tapio Niemi",
-    "url": "tappari.blog",
+    "title": "BLOGTITLE",  
+    "author": "BLOGAUTHOR",
+    "url": "BLOGURL",
     "likes": 1
 }
