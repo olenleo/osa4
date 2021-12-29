@@ -1,7 +1,5 @@
 const blogsRouter = require('express').Router()
-const { resourceLimits } = require('worker_threads')
 const Blog = require('../models/blog')
-
 
 blogsRouter.get(':id',(request, response, next) => {
     Blog.findById(request.params.id)
@@ -17,13 +15,10 @@ blogsRouter.get(':id',(request, response, next) => {
     .catch(error => next(error))
 })
 
-
-
 blogsRouter.get('/', async (request, response, next) => {
     const blogs = await Blog.find({})
     response.json(blogs.map(blog => blog.toJSON()))
 })
-
 
 blogsRouter.post('/', async (request, response, next) => {
     const body = request.body
@@ -45,7 +40,6 @@ blogsRouter.post('/', async (request, response, next) => {
     response.json(savedBlog.toJSON())
 })
 
-
 blogsRouter.delete('/:id', async (request, response, next) => {
     var mongoose = require('mongoose');
     var id = mongoose.Types.ObjectId(request.params.id);
@@ -53,9 +47,8 @@ blogsRouter.delete('/:id', async (request, response, next) => {
     await Blog.findByIdAndRemove(id)
     return response.status(204).end()
 })
-
   
-  blogsRouter.put('/:id', (request, response, next) => {
+blogsRouter.put('/:id', (request, response, next) => {
     const body = request.body
   
     const blog = {
@@ -70,6 +63,6 @@ blogsRouter.delete('/:id', async (request, response, next) => {
         response.json(updatedBlog.toJSON())
       })
       .catch(error => next(error))
-  })
-  
-  module.exports = blogsRouter
+})
+
+module.exports = blogsRouter
